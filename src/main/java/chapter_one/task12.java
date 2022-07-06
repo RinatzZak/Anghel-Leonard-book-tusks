@@ -3,7 +3,8 @@ package chapter_one;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * Написать программу удяляющую повторяющиеся символы из строки.
