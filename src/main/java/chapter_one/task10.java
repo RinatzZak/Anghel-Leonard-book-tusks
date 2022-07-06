@@ -32,7 +32,7 @@ public class task10 {
         String end = str.substring(j);
         return begin + c + end;
     }
-    public static void main(String args[]){
+    public static void main(String[] args){
         String s1 = "Cat";
         System.out.println("\nPermutations for " + s1 + " are: \n" + permutationFinder(s1));
     }
