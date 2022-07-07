@@ -25,5 +25,6 @@ public class task20 {
 
     public static String concatenate(String str, int count) {
         return str.repeat(count);
+        // return String.join("", Collections.nCopies(count, str));
     }
 }
