@@ -14,6 +14,7 @@ public class task55 {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String str = reader.readLine();
+            reader.close();
             switch (str) {
                 case "astra" -> System.out.println("Yep, it's astra!");
                 case "weather" -> System.out.println("Yep, it's weather!");

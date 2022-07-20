@@ -15,6 +15,7 @@ public class task56 {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Угадайте число от 1 до 10 включительно! \nВведите число");
             String str = reader.readLine();
+            reader.close();
             if (str != null) {
                 switch (str) {
                     case "1", "2", "3", "4", "5", "6", "8", "9", "10" -> System.out.println("Нет, не это число!");
