@@ -16,6 +16,7 @@ public class task8 {
             System.out.println("Введите предложение и мы удалим из него все пробелы! =)");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String sentence = reader.readLine();
+            reader.close();
             System.out.println("Принято!");
             Thread.sleep(3000);
             System.out.println("Вот вот получится...");

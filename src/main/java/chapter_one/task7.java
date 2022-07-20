@@ -18,6 +18,7 @@ public class task7 {
             String symbol = reader.readLine();
             System.out.println("В какой формат вы хотите преобразовать число? Напишите - int, long, float, double");
             String format = reader.readLine().toLowerCase();
+            reader.close();
             if (symbol.contains(".")){
                 switch (format) {
                     case "float" -> System.out.println(Float.parseFloat(symbol));

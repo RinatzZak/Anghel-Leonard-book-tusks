@@ -18,6 +18,7 @@ public class task6 {
             System.out.println("Введите один символ!");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String symbol = reader.readLine();
+            reader.close();
             if (symbol.length() == 1) {
                 System.out.println("Символ " + symbol + " встречается в предложении " + countSymbol(sentence, symbol) + " раз.");
             } else {

@@ -17,6 +17,7 @@ public class task14 {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Введите предложение или слово.");
             String sentence = reader.readLine();
+            reader.close();
             System.out.println("Вот что получилось: \n" + longestCharacterRepetition(sentence));
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -16,6 +16,7 @@ public class task13 {
             String sentence = reader.readLine();
             System.out.println("Введите символ или букву, которую необходимо удалить из данного преложения.слова");
             String symbol = reader.readLine();
+            reader.close();
             System.out.println("Вот что получилось: \n" + deleteSymbol(sentence, symbol));
         } catch (IOException e) {
             throw new RuntimeException(e);

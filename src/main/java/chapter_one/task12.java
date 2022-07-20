@@ -17,6 +17,7 @@ public class task12 {
             System.out.println("Пожалуйста, введите предложение и мы удалим из него все повторяющиеся символы");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String sentence = reader.readLine();
+            reader.close();
             System.out.println(removeRepeatingSymbols(sentence.toLowerCase()));
         } catch (IOException e) {
             throw new RuntimeException(e);

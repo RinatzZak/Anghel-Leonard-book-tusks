@@ -16,6 +16,7 @@ public class task11 {
             System.out.println("Пожалуйста, введите слово и мы проверим, является она палиндромом или нет.");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String sentence = reader.readLine();
+            reader.close();
             System.out.println(isPalindrome(sentence.toLowerCase()));
         } catch (IOException e) {
             throw new RuntimeException(e);

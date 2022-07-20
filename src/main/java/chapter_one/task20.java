@@ -15,6 +15,7 @@ public class task20 {
             System.out.println("введи строку");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String str = reader.readLine();
+            reader.close();
             System.out.println("Введите число, сколько раз надо конкатенировать строку");
             int count = Integer.parseInt(reader.readLine());
             System.out.println(concatenate(str, count));
