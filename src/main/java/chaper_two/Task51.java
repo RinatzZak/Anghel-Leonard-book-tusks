@@ -1,57 +1,41 @@
 package chaper_two;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Date;
-import java.util.Set;
+
+import static chaper_two.Task51.User.getBuilder;
 
 /**
- * Написать программу, которая предотвращает появление плохих данных в немутируемых объектах
+ * Написание немутируемого класса с помощью шаблона строителя
  */
 
-public class task52 {
+public class Task51 {
+
     public static void main(String[] args) {
-        Man user;
-        Validator validator
-                = Validation.buildDefaultValidatorFactory().getValidator();
-        Man.UserBuilder userBuilder
-                = new Man.UserBuilder("monika", "klooi0988")
+
+        User userl = getBuilder("marin21", "hjju9887h").build();
+
+        User user2 = getBuilder("onik", "44fef22")
+                .email("ion@gmail.com")
+                .build();
+
+        User user3 = getBuilder("monika", "klooi0988")
                 .email("monika@gmail.com")
-                .description("M").surname("Gunther");
-        final Set<ConstraintViolation<Man.UserBuilder>> violations
-                = validator.validate(userBuilder);
-        if (violations.isEmpty()) {
-            user = userBuilder.build();
-            System.out.println("User успешно создан на: " + user);
-        } else {
-            System.out.println("Нарушения UserBuilder: " + violations);
-        }
+                .description("Monika")
+                .surname("Ghuenter")
+                .build();
+
+        System.out.println(userl + "\n" + user2 + "\n" + user3);
     }
 
-    public static final class Man {
-        @NotBlank
-        @Size(min = 2, max = 30)
+    public static final class User {
         private final String name;
-        @NotBlank
-        @Size(min = 2, max = 30)
         private final String surname;
-        @NotBlank
-        @Size(min = 2, max = 30)
         private final String password;
-        @Email
         private final String email;
-        @NotBlank
-        @Size(min = 2, max = 300)
         private final String description;
-        @NotNull
         private final Date registration;
 
-        public Man(Man.UserBuilder userBuilder) {
+        public User(UserBuilder userBuilder) {
             this.name = userBuilder.name;
             this.surname = userBuilder.surname;
             this.password = userBuilder.password;
@@ -60,9 +44,8 @@ public class task52 {
             this.registration = userBuilder.registration;
         }
 
-
-        public static Man.UserBuilder getBuilder(String name, String password) {
-            return new Man.UserBuilder(name, password);
+        public static UserBuilder getBuilder(String name, String password) {
+            return new UserBuilder(name, password);
         }
 
         @Override
@@ -78,21 +61,11 @@ public class task52 {
         }
 
         public static final class UserBuilder {
-            @NotBlank
-            @Size(min = 2, max = 30)
             private final String name;
-            @NotBlank
-            @Size(min = 2, max = 30)
             private String surname;
-            @NotBlank
-            @Size(min = 2, max = 30)
             private final String password;
-            @Email
             private String email;
-            @NotBlank
-            @Size(min = 2, max = 300)
             private String description;
-            @NotNull
             private final Date registration;
 
             public UserBuilder(String name, String password) {
@@ -101,23 +74,23 @@ public class task52 {
                 this.registration = new Date();
             }
 
-            public Man.UserBuilder surname(String surname) {
+            public UserBuilder surname(String surname) {
                 this.surname = surname;
                 return this;
             }
 
-            public Man.UserBuilder email(String email) {
+            public UserBuilder email(String email) {
                 this.email = email;
                 return this;
             }
 
-            public Man.UserBuilder description(String description) {
+            public UserBuilder description(String description) {
                 this.description = description;
                 return this;
             }
 
-            public Man build() {
-                return new Man(this);
+            public User build() {
+                return new User(this);
             }
 
             public String getName() {
@@ -144,5 +117,6 @@ public class task52 {
                 return new Date(registration.getTime());
             }
         }
+
     }
 }
